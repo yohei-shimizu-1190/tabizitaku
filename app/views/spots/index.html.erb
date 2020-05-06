@@ -14,36 +14,20 @@
       <div id="北海道" class="tab-pane active">
         <% @spots.each do |spot| %>
           <% if spot.prefecture == "北海道" %>
-            <%# <%= link_to "spot_path(spot.id)" do %> %>
+            <%= link_to "/spots/#{params[:id]}" do %>
               <div class="mb-5 border row d-flex justify-content-left align-items-center">
                 <div class="spot-box col-lg-5 ">
-                  <img src="<% spot.image %>" class="w-100">
+                  <img src="<%= spot.image %>" class="w-100">
                 </div>
-                <div class="spot-box col-lg-5">
-                  <h1 class="text-center text-dark"><% spot.spot %></h1>
+                <div class="spot-box col-lg-7">
+                  <h1 class="text-center mb-5 text-dark"><%= spot.spot %></h1>
+                  <h5 class="text-center text-dark"><%= spot.content %></h5>
                 </div>
               </div>
-            <%# <% end %> %>
-          <% else %>
-            <h1>なのもないんだなーーーこれが</h1>
+            <% end %>
           <% end %>
         <% end %>
-                <%# ここをeach doに変更(showアクションへ遷移させて) %>
-        <%= link_to "spot_path(spot.id)" do %>
-          <div class="mb-5 border row d-flex justify-content-left align-items-center">
-            <div class="spot-box col-lg-5 ">
-              <img src="/image2.jpeg" class="w-100">
-            </div>
-            <div class="spot-box col-lg-5">
-              <h1 class="text-center text-dark">（知床）</h1>
-            </div>
-          </div>
-        <% end %>
-            <%# ここまで %>
-          
-
       </div>
-
 
       <div id="東北" class="tab-pane">ここについか2</div>
       <div id="関東" class="tab-pane">ここについか3</div>

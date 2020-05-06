@@ -10,4 +10,6 @@ class SpotsController < ApplicationController
   def jmap
     
   end
+
+  
 end
