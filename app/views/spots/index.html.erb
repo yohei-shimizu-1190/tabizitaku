@@ -1,0 +1,40 @@
+<section class="py-5">
+  <h1 class="mb-5 text-center text-secondary">スポットを選択すると詳細ページへ移動します</h1>
+  <div class="container">
+    <ul class="nav nav-tabs">
+      <li class="nav-item"><a href="#北海道" class="nav-link active mr-5" data-toggle="tab">北海道</a></li>
+      <li class="nav-item"><a href="#東北" class="nav-link mr-5" data-toggle="tab">東北</a></li>
+      <li class="nav-item"><a href="#関東" class="nav-link mr-5" data-toggle="tab">関東</a></li>
+      <li class="nav-item"><a href="#中部" class="nav-link mr-5" data-toggle="tab">中部</a></li>
+      <li class="nav-item"><a href="#近畿" class="nav-link mr-5" data-toggle="tab">近畿</a></li>
+      <li class="nav-item"><a href="#中国" class="nav-link mr-5" data-toggle="tab">中国</a></li>
+      <li class="nav-item"><a href="#九州" class="nav-link mr-5" data-toggle="tab">九州</a></li>
+    </ul>
+    <div class="tab-content py-5">
+      <div id="北海道" class="tab-pane active">
+                <%# ここをeach doに変更(showアクションへ遷移させて) %>
+        <%= link_to "/" do %>
+          <div class="mb-5 border row d-flex justify-content-left align-items-center">
+            <div class="spot-box col-lg-5 ">
+              <img src="/image2.jpeg" class="w-100">
+            </div>
+            <div class="spot-box col-lg-5">
+              <h1 class="text-center text-dark">（知床）</h1>
+            </div>
+          </div>
+        <% end %>
+            <%# ここまで %>
+          
+
+      </div>
+
+
+      <div id="東北" class="tab-pane">ここについか2</div>
+      <div id="関東" class="tab-pane">ここについか3</div>
+      <div id="中部" class="tab-pane">ここについか4</div>
+      <div id="近畿" class="tab-pane">ここについか5</div>
+      <div id="中国" class="tab-pane">ここについか6</div>
+      <div id="九州" class="tab-pane">ここについか7</div>
+    </div>
+  </div>
+</section>

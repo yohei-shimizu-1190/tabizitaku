@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
   root to: "top#index"
-  resources :posts, only: :index 
+  resources :spots, only: :index do
+    collection do
+      get 'jmap'
+    end
+  end
 end

@@ -13,28 +13,27 @@
 </head>
 
 <body>
-  <header>
+  <header class="sticky-top">
     <div class="container">
-      <nav class="navbar navbar-expand-sm navbar-light">
-        <a href="" class="navbar-brand">旅じたく</a>
+      <nav class="navbar navbar-expand-sm navbar-light bg-white">
+        <a href="/" class="navbar-brand">旅じたく</a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div id="menu" class="flex-row-reverse collapse navbar-collapse ">
           <ul class="navbar-nav">
             <li class="nav-item"><a href="" class="nav-link pr-3">お気に入りランキング</a></li>
-            <li class="nav-item"><a href="" class="nav-link pr-3">一覧を見る</a></li>
+            <li class="nav-item"><a href="/spots" class="nav-link pr-3">一覧を見る</a></li>
             <li class="nav-item"><a href="" class="nav-link">場所を覚える</a></li>
           </ul>
         </div>
       </nav>
     </div>
   </header>
+
     <%= yield %>
-  <section class="bg-light text-center py-5">
-    <a href="" class="btn btn-secondary btn-lg ">他のポートフォリオを見る</a>
-  </section>
-  <footer class="text-center text-muted py-4">
+
+  <footer class="text-center text-muted py-4 mt-auto">
     写真引用:httttttttttttafjahdoadhgaoihoagd
   </footer>
   <!-- Optional JavaScript -->

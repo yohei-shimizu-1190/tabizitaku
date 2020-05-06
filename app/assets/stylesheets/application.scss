@@ -2,9 +2,6 @@
 @import "top.scss";
 
 // 全体
-.container img {
-  height: 200px;
-}
 html, body {
   height: 100%;
   width: 100%;
@@ -26,5 +23,16 @@ html, body {
   font-size: 500%;
   text-transform: uppercase;
   text-shadow: 1px 1px 10px #000;
+}
+
+.container img {
+  height: 300px;
+}
+
+
+// posts#indexページ
+.tab-content img{
+  width: 100%;
+  height: 400px;
 }
 
