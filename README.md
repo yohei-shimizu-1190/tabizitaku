@@ -1,6 +1,6 @@
 # README
 
-## posts テーブル
+## spots テーブル
 | Column     | Type   | Options     |
 | ---------- | ------ | ----------- |
 | spot       | string | null: false |
