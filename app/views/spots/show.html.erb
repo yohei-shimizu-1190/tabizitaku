@@ -11,6 +11,7 @@
 
   <h2> Google Map 〜<%= @spot.address%>〜</h2>
   <p class="text-warning">localhost でアクセス可能にしてあるためデプロイ時注意。詳細はBMのデプロイ時注意とあるページへ</p>
+  <p class="text-warning">APIキーをこのディレクトリ内に記載しているため注意！環境変数必要か？</p>
   <div id="map"></div>
 </div>
 
@@ -27,7 +28,6 @@ function initMap(latlng) {
     zoom: 9,
     mapTypeId: "hybrid"
   });
-
   var marker = new google.maps.Marker({
     position: latlng,
     map: map
