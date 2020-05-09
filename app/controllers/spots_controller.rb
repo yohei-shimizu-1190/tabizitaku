@@ -7,9 +7,7 @@ class SpotsController < ApplicationController
     @spot = Spot.find(params[:id])
   end
 
-  def jmap
-    
+  def quiz
   end
-
   
 end
