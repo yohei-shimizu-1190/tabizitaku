@@ -20,7 +20,6 @@ html, body {
 
 .carousel-caption h1 {
   font-size: 500%;
-  text-transform: uppercase;
   text-shadow: 1px 1px 10px #000;
 }
 
@@ -44,13 +43,13 @@ html, body {
 // posts#quizページ
 #wrapper {
   height: calc(100vh - 120px);
-  background-color: sandybrown;
+  background-color: #F5F5F5;
 }
 
 #qbox {
   margin: 30px auto;
+  border: 5px;
   background: #fff;
-  border-radius: 4px;
   position: relative;
 
 }
@@ -132,4 +131,3 @@ html, body {
   display: block;
   text-decoration: none;
 }
-
