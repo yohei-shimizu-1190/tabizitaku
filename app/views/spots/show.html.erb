@@ -1,3 +1,15 @@
+<div class="pagenation p-3 text-center">
+  <% if @spot.previous.present? %>
+    <%= link_to spot_path(@spot.previous) do %>
+      <button class="btn btn-outline-info mr-4 p-2">◀ ◀ <%= @spot.previous.name %></button>
+    <% end %>
+  <% end %>
+  <% if @spot.next.present? %>
+    <%= link_to spot_path(@spot.next) do %>
+      <button class="btn btn-outline-primary p-2"><%= @spot.next.name %> ▶ ▶</button>
+    <% end %>
+  <% end %>
+</div>
 <div class="container pl-5 pr-5">
   <h3 class="mt-5 mb-5 text-center border-bottom"><%= @spot.name %></h3>
   <div class="mb-5 row d-flex justify-content-left align-items-center">
@@ -23,11 +35,10 @@
 }
 </style>
 
-<script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyBsbAlSkry5YQYYQFHOYpLCtzjvQeqqqUw&callback=initMap" async defer></script>
 
 <script>
     function initMap() {
-
+      
       var target = document.getElementById('target');
       var map;
       var spot = {lat: <%= @spot.latitude %>, lng: <%= @spot.longitude %>};
@@ -37,14 +48,11 @@
       map = new google.maps.Map(target, {
         center: spot,
         zoom: 8,
-        mapTypeId: 'hybrid',
-        clickableIcons: false
       });
 
       marker = new google.maps.Marker({
         position: spot,
         map: map,
-        title: '<%= @spot.name %>',
         icon: {
           url: "https://maps.google.com/mapfiles/ms/micons/red-dot.png",
         },
@@ -61,5 +69,5 @@
 
     }
 </script>
+      <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyBsbAlSkry5YQYYQFHOYpLCtzjvQeqqqUw&callback=initMap" async defer></script>
 
-ここまでいいよ！33333

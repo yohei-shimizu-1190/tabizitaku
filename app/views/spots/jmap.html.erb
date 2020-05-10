@@ -1,26 +1,25 @@
-<div class="container">
-  <h2> Google Map</h2>
-  <p class="text-warning">localhost でアクセス可能にしてあるためデプロイ時注意。詳細はBMのデプロイ時注意とあるページへ</p>
-  <p class="text-warning">APIキーをこのディレクトリ内に記載しているため注意！環境変数必要か？</p>
+<div class="container pt-4">
+  <h1 class="mb-5 text-center text-secondary">日本地図で場所を覚える</h1>
+  <h4 class="pb-3 text-primary">世界遺産によってはピンポイントで示せない場所もあるので、関連が深い場所を表示しています</h4>
+  <p>（マウスカーソルをピンの上に置くと、世界遺産の登録名称を確認できます）</p>
   <div id="target"></div>
 </div>
 
 <style>
 #target {
   width: 100%;
-  height: 700px;
+  height: 600px;
 }
 </style>
 
-<script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyBsbAlSkry5YQYYQFHOYpLCtzjvQeqqqUw&callback=initMap" async defer></script>
 
 <script>
   function initMap() {
-      var latlng = new google.maps.LatLng(36.30, 139.5);
-      var target = document.getElementById('target');
+    var latlng = new google.maps.LatLng(35.7156, 139.776);
+    var target = document.getElementById('target');
 
     var map = new google.maps.Map(target, {
-        center: latlng,
+      center: latlng,
         zoom: 6,
         clickableIcons: false
       });
@@ -31,6 +30,13 @@
         var marker = new google.maps.Marker({
           position: {lat: <%= spot.latitude %>, lng: <%= spot.longitude %>},
           map: map,
+          title: "<%= spot.name %>",
+          // label: {
+          //   text: "<%= spot.name %>" ,
+          //   color: "brown" ,
+          //   fontSize: "12px" ,
+          //   fontWeight: "bold"
+          // },
           icon: {
             url: "https://maps.google.com/mapfiles/ms/micons/red-dot.png",
           },
@@ -48,5 +54,4 @@
   }
 </script>
 
-
-savapoint!!!!!
+<script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyBsbAlSkry5YQYYQFHOYpLCtzjvQeqqqUw&callback=initMap" async defer></script>
