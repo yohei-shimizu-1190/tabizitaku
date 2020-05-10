@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :spots, only: [:index, :show] do
     collection do
       get 'quiz'
+      get 'jmap'
     end
   end
 end

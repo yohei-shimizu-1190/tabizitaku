@@ -10,4 +10,7 @@ class SpotsController < ApplicationController
   def quiz
   end
   
+  def jmap
+    @spots = Spot.all
+  end
 end
