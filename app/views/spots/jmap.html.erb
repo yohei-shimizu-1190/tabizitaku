@@ -8,7 +8,7 @@
 <style>
 #target {
   width: 100%;
-  height: 400px;
+  height: 700px;
 }
 </style>
 
@@ -21,18 +21,13 @@
 
     var map = new google.maps.Map(target, {
         center: latlng,
-        zoom: 8,
-        mapTypeId: 'hybrid',
+        zoom: 6,
         clickableIcons: false
       });
 
     <% @spots.each do |spot| %>
       (function () {
-        var infoWindow = new google.maps.InfoWindow({
-          content: "<%= spot.address %>",
-          pixelOffset: new google.maps.Size( 0, -50 )
-          });
-
+        
         var marker = new google.maps.Marker({
           position: {lat: <%= spot.latitude %>, lng: <%= spot.longitude %>},
           map: map,
@@ -41,7 +36,11 @@
           },
           animation: google.maps.Animation.BOUNCE
         });
-        
+        var infoWindow = new google.maps.InfoWindow({
+          position: {lat: <%= spot.latitude %>, lng: <%= spot.longitude %>},
+          content: "<%= spot.address %>",
+          pixelOffset: new google.maps.Size( 0, -50 )
+          });
         infoWindow.open(map);
           
       })();
