@@ -1,31 +1,33 @@
-<div class="pagenation p-3 text-center">
-  <% if @spot.previous.present? %>
-    <%= link_to spot_path(@spot.previous) do %>
-      <button class="btn btn-outline-info mr-4 p-2">◀ ◀ <%= @spot.previous.name %></button>
-    <% end %>
-  <% end %>
-  <% if @spot.next.present? %>
-    <%= link_to spot_path(@spot.next) do %>
-      <button class="btn btn-outline-primary p-2"><%= @spot.next.name %> ▶ ▶</button>
-    <% end %>
-  <% end %>
-</div>
 <div class="container pl-5 pr-5">
   <h3 class="mt-5 mb-5 text-center border-bottom"><%= @spot.name %></h3>
-  <div class="mb-5 row d-flex justify-content-left align-items-center">
-    <div class="spot-box col-md-5 ">
-      <img src="<%= @spot.image %>" class="w-100">
+  <div class="mb-5">
+    <div class="spot-box mx-auto w-75">
+      <img src="<%= @spot.image %>" class="img-fluid">
     </div>
-    <div class="spot-box col-md-7">
-      <h4 class="text-justify text-align-2 text-secondary"><%= @spot.content %></h4>
+    <div class="spot-box mt-5">
+      <h4 class="text-justify text-align text-secondary"><%= @spot.content %></h4>
     </div>
   </div>
 
+  <div class="pagenation pb-5 text-center">
+    <% if @spot.previous.present? %>
+      <%= link_to spot_path(@spot.previous) do %>
+        <button class="btn btn-outline-info mr-4 p-2">◀ ◀ <%= @spot.previous.name %></button>
+      <% end %>
+    <% end %>
+    <% if @spot.next.present? %>
+      <%= link_to spot_path(@spot.next) do %>
+        <button class="btn btn-outline-primary p-2"><%= @spot.next.name %> ▶ ▶</button>
+      <% end %>
+    <% end %>
+  </div>
 
   <h2> Google Map</h2>
   <p class="text-warning">localhost でアクセス可能にしてあるためデプロイ時注意。詳細はBMのデプロイ時注意とあるページへ</p>
   <p class="text-warning">APIキーをこのディレクトリ内に記載しているため注意！環境変数必要か？</p>
   <div id="target"></div>
+
+  
 </div>
 
 <style>
