@@ -31,20 +31,16 @@
           position: {lat: <%= spot.latitude %>, lng: <%= spot.longitude %>},
           map: map,
           title: "<%= spot.name %>",
-          // label: {
-          //   text: "<%= spot.name %>" ,
-          //   color: "brown" ,
-          //   fontSize: "12px" ,
-          //   fontWeight: "bold"
-          // },
           icon: {
             url: "https://maps.google.com/mapfiles/ms/micons/red-dot.png",
           },
           animation: google.maps.Animation.BOUNCE
         });
+        var spotLink = '<%= link_to "#{spot.address}", spot %>';
+
         var infoWindow = new google.maps.InfoWindow({
           position: {lat: <%= spot.latitude %>, lng: <%= spot.longitude %>},
-          content: "<%= spot.address %>",
+          content: spotLink,
           pixelOffset: new google.maps.Size( 0, -50 )
           });
         infoWindow.open(map);
