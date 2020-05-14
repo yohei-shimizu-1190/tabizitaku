@@ -1,6 +1,8 @@
 @import "bootstrap";
+@import "config/colors";
 @import "modules/spots";
 @import "modules/top";
+@import "modules/flash";
 
 * {
   box-sizing: border-box;
