@@ -26,12 +26,18 @@
             <li class="nav-item"><a href="/spots" class="nav-link pr-3">一覧を見る</a></li>
             <li class="nav-item"><a href="/spots/jmap" class="nav-link pr-3">場所を覚える</a></li>
             <li class="nav-item"><a href="/spots/quiz" class="nav-link pr-3">クイズで学ぶ</a></li>
-            <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-danger' %> </li>
+            <% if user_signed_in? %>
+              <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-danger' %> </li>
+            <% else %>
+              <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-primary' %> </li>
+              <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-primary' %> </li>
+            <% end %>
           </ul>
         </div>
       </nav>
     </div>
   </header>
+
 
     <%= yield %>
 
