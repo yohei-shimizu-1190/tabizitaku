@@ -13,4 +13,5 @@ class SpotsController < ApplicationController
   def jmap
     @spots = Spot.all
   end
+
 end
