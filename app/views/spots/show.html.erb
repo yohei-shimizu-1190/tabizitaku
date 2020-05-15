@@ -31,7 +31,7 @@
 
   <div class="photo-wrapper border py-5 px-3 my-4">
     <% if current_user %>
-      <h3 class="text-center text-success mb-4 border-bottom">この世界遺産に関係する思い出を投稿できます（タイトルと写真両方必要です）</h3>
+      <h4 class="text-center text-success mb-4 border-bottom">この世界遺産に関係する思い出を投稿できます （タイトルと写真両方必要です）</h4>
     
       <div class="form">
         <%= form_with(model: [@spot, @photo], local: true) do |form| %>
@@ -52,8 +52,11 @@
             <div class="col-md-6 mb-4">
               <div class="photo-box">
                 <%= image_tag photo.photo_image.url ,class: "mx-auto d-block"%>
-                <p class="photo-text text-justify text-center">【 <%= photo.text %> 】</p>
-                <p class="photo-nickname text-justify text-center"><%= photo.user.nickname %></p>
+                <p class="photo-text">【 <%= photo.text %> 】</p>
+                <p class="photo-nickname"><%= photo.user.nickname %></p>
+                <% if user_signed_in? && current_user.id == photo.user_id %>
+                  <%= link_to '✕', spot_photo_path(@spot, photo), method: :delete, data: {confirm: "削除しますか？"}, class: "photo-destroy-btn btn btn-sm btn-outline-danger"%>
+                <% end %>
               </div>
 
             </div>

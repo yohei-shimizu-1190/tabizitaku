@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "top#index"
   resources :spots, only: [:index, :show] do
-    resources :photos, only: :create
+    resources :photos, only: [:create, :destroy]
     collection do
       get 'quiz'
       get 'jmap'

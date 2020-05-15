@@ -7,7 +7,7 @@ class SpotsController < ApplicationController
   def show
     @spot = Spot.find(params[:id])
     @photo = Photo.new
-    @photos = @spot.photos.includes(:user)
+    @photos = @spot.photos.includes(:user).order("created_at DESC")
   end
   
   def quiz
