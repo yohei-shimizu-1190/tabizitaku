@@ -55,7 +55,10 @@
                 <p class="photo-text">【 <%= photo.text %> 】</p>
                 <p class="photo-nickname"><%= photo.user.nickname %></p>
                 <% if user_signed_in? && current_user.id == photo.user_id %>
-                  <%= link_to '✕', spot_photo_path(@spot, photo), method: :delete, data: {confirm: "削除しますか？"}, class: "photo-destroy-btn btn btn-sm btn-outline-danger"%>
+                  <%= link_to '✕', spot_photo_path(@spot, photo), method: :delete, class: "photo-destroy-btn btn btn-sm btn-outline-danger", data:
+                    {confirm: "この投稿を削除してよろしいですか？",
+                      cancel: "やめる",
+                      commit: "削除する"}, title: "削除の確認" %>
                 <% end %>
               </div>
 
