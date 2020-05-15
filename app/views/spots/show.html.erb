@@ -1,34 +1,70 @@
-<div class="container pl-5 pr-5">
-  <h3 class="mt-5 mb-5 text-center border-bottom"><%= @spot.name %></h3>
-  <div class="mb-5">
-    <div class="spot-box">
-      <img src="<%= @spot.image %>" class="img-fluid mx-auto d-block">
+    <div class="pagenation text-center pt-4">
+      <% if @spot.previous.present? %>
+        <%= link_to spot_path(@spot.previous) do %>
+          <button class="btn btn-outline-info mr-4 p-2">◀ ◀ <%= @spot.previous.name %></button>
+        <% end %>
+      <% end %>
+      <% if @spot.next.present? %>
+        <%= link_to spot_path(@spot.next) do %>
+          <button class="btn btn-outline-primary p-2"><%= @spot.next.name %> ▶ ▶</button>
+        <% end %>
+      <% end %>
     </div>
-    <div class="spot-box mt-5">
-      <h4 class="text-justify text-align text-secondary"><%= @spot.content %></h4>
+
+<div class="container">
+  <div class="spot-wrapper border p-4 my-4">
+
+    <h3 class="mt-5 mb-5 text-center border-bottom"><%= @spot.name %></h3>
+    <div class="mb-5">
+      <div class="spot-box">
+        <img src="<%= @spot.image %>" class="img-fluid mx-auto d-block">
+      </div>
+      <div class="spot-box mt-5">
+        <h4 class="text-justify text-align text-secondary"><%= @spot.content %></h4>
+      </div>
     </div>
+
+    <p class="text-warning">localhost でアクセス可能にしてあるためデプロイ時注意。詳細はBMのデプロイ時注意とあるページへ</p>
+    <p class="text-warning">APIキーをこのディレクトリ内に記載しているため注意！環境変数必要か？</p>
+    <div id="target"></div>
   </div>
 
-  <div class="pagenation pb-5 text-center">
-    <% if @spot.previous.present? %>
-      <%= link_to spot_path(@spot.previous) do %>
-        <button class="btn btn-outline-info mr-4 p-2">◀ ◀ <%= @spot.previous.name %></button>
-      <% end %>
+  <div class="photo-wrapper border py-5 px-3 my-4">
+    <% if current_user %>
+      <h3 class="text-center text-success mb-4 border-bottom">この世界遺産に関係する思い出を投稿できます（タイトルと写真両方必要です）</h3>
+    
+      <div class="form">
+        <%= form_with(model: [@spot, @photo], local: true) do |form| %>
+          <%= form.text_field :text, placeholder: "タイトルを入力してください", class: "form-group w-50 mr-3" %>
+          <%= form.file_field :photo_image, class: "file mb-3" %>
+          <%= form.submit "▶投稿する", class: "btn btn-success btn-lg form-group" %>
+        <% end %>
+      </div>
+    <% else %>
+      <strong><h3 class="text-center text-warning">※※※ photoの投稿には新規登録/ログインが必要です ※※※</h3></strong>
     <% end %>
-    <% if @spot.next.present? %>
-      <%= link_to spot_path(@spot.next) do %>
-        <button class="btn btn-outline-primary p-2"><%= @spot.next.name %> ▶ ▶</button>
-      <% end %>
-    <% end %>
-  </div>
 
-  <h2> Google Map</h2>
-  <p class="text-warning">localhost でアクセス可能にしてあるためデプロイ時注意。詳細はBMのデプロイ時注意とあるページへ</p>
-  <p class="text-warning">APIキーをこのディレクトリ内に記載しているため注意！環境変数必要か？</p>
-  <div id="target"></div>
+    <div class="photo-list">
+      <h4 class="my-4">〜みんなの思い出〜</h4>
+      <div class="row">
+        <% if @photos %>
+          <% @photos.each do |photo| %>
+            <div class="col-md-6 mb-4">
+              <div class="photo-box">
+                <%= image_tag photo.photo_image.url ,class: "mx-auto d-block"%>
+                <p class="photo-text text-justify text-center">【 <%= photo.text %> 】</p>
+                <p class="photo-nickname text-justify text-center"><%= photo.user.nickname %></p>
+              </div>
+
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
   
-</div>
 
 <style>
 #target {
@@ -50,6 +86,7 @@
       map = new google.maps.Map(target, {
         center: spot,
         zoom: 8,
+        mapTypeId: "hybrid"
       });
 
       marker = new google.maps.Marker({
@@ -69,7 +106,8 @@
 
     infoWindow.open(map);
 
-    }
+    };
 </script>
-      <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyBsbAlSkry5YQYYQFHOYpLCtzjvQeqqqUw&callback=initMap" async defer></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyBsbAlSkry5YQYYQFHOYpLCtzjvQeqqqUw&callback=initMap" async defer></script>
 

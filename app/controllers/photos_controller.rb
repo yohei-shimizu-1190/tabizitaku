@@ -1,7 +1,15 @@
 class PhotosController < ApplicationController
   def create
-    Photo.create(photo_params)
-    redirect_to "/spots/#{photo.spot.id}"
+    photo = Photo.create(photo_params)
+    if photo.save
+      redirect_to "/spots/#{photo.spot.id}", notice: 'あなたの思い出を追加しました'
+    else
+      @spot = Spot.find(photo.spot.id)
+      @photo = Photo.new  
+      @photos = @spot.photos.includes(:user)
+      flash.now[:alert] = '投稿にはタイトルと写真の両方が必要です'
+      render "spots/show"
+    end
   end
 
   private

@@ -1,5 +1,7 @@
 @import "bootstrap";
 @import "config/colors";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "modules/spots";
 @import "modules/top";
 @import "modules/flash";
@@ -13,5 +15,3 @@ html, body {
   width: 100%;
   font-family: Verdana, sans-serif;
 }
-
-
