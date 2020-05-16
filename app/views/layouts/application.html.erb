@@ -5,7 +5,8 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tag %>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <%= stylesheet_link_tag "application", media: "all" %>
@@ -15,7 +16,7 @@
 <body>
   <%= render 'layouts/notifications' %>
   <header class="sticky-top">
-    <div class="container-fluid pl-5 pr-5 border-bottom bg-white">
+    <div class="container-fluid pl-5 pr-5 border-bottom bg-light">
       <nav class="navbar navbar-expand-sm navbar-light">
         <a href="/" class="navbar-brand">旅 じ た く</a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#menu">
@@ -27,10 +28,10 @@
             <li class="nav-item"><a href="/spots/jmap" class="nav-link pr-3">場所を覚える</a></li>
             <li class="nav-item"><a href="/spots/quiz" class="nav-link pr-3">クイズで学ぶ</a></li>
             <% if user_signed_in? %>
+              <li class="nav-item"><%= link_to "アカウント編集",  edit_user_registration_path, class: 'nav-link text-primary' %> </li>
               <li class="nav-item"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-danger' %> </li>
             <% else %>
-              <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-primary' %> </li>
-              <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-primary' %> </li>
+              <%= link_to "ログイン・新規登録", new_user_session_path, class: 'nav-link text-primary' %> </li>
             <% end %>
           </ul>
         </div>
@@ -41,8 +42,8 @@
 
     <%= yield %>
 
-  <footer class="text-center text-muted py-4 border-top mt-auto">
-    引用 :「5分でおさらい！日本にある23の世界遺産総まとめ」https://tg.tripadvisor.jp/news/advice/world-heritage_japan_all20/
+  <footer class="text-center text-muted py-4 border-top mt-auto bg-light">
+    引用文 :「5分でおさらい！日本にある23の世界遺産総まとめ」https://tg.tripadvisor.jp/news/advice/world-heritage_japan_all20/
   </footer>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

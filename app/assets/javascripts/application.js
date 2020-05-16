@@ -14,3 +14,4 @@
 //= require popper
 //= require bootstrap
 //= require activestorage
+// = require data-confirm-modal

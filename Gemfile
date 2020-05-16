@@ -67,3 +67,7 @@ gem 'rename'
 gem 'geocoder'
 gem 'sprockets'
 gem 'devise'
+gem 'carrierwave'
+gem 'mini_magick'
+gem "font-awesome-sass"
+gem 'data-confirm-modal'
