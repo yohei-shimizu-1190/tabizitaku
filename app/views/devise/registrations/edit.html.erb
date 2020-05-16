@@ -33,8 +33,12 @@
     </div>
 
     <div class="actions">
-      <%= f.submit "更新する", :class => "btn btn-primary btn-block" %>
-      <%= link_to "キャンセルして戻る", :back, :class => "btn btn-secondary btn-block" %>
+      <%= f.submit "アカウントを更新する", :class => "btn btn-success btn-block" %>
+      <%= link_to "キャンセルして戻る", :back, :class => "btn btn-secondary mt-4 btn-block" %>
+      <%= link_to "アカウントを削除する", user_registration_path, method: :delete , :class => "btn btn-danger mt-4 btn-block", data:
+        {confirm: "このアカウントを削除してよろしいですか？",
+          cancel: "やめる",
+          commit: "削除する"}, title: "削除の確認" %>
     </div>
     <% end %>
   </div>
