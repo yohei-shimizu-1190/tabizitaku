@@ -2,7 +2,7 @@
 
 class PhotosController < ApplicationController
   before_action :set_spot
-  
+
   def create
     photo = Photo.create(photo_params)
     if photo.save
