@@ -1,15 +1,18 @@
+# frozen_string_literal: true
+
 class PhotosController < ApplicationController
   before_action :set_spot
+
   def create
     photo = Photo.create(photo_params)
     if photo.save
       redirect_to spot_path(@spot), notice: 'あなたの思い出を追加しました'
     else
       @spot = Spot.find(photo.spot.id)
-      @photo = Photo.new  
+      @photo = Photo.new
       @photos = @spot.photos.includes(:user)
       flash.now[:alert] = '投稿にはタイトルと写真の両方が必要です'
-      render "spots/show"
+      render 'spots/show'
     end
   end
 
@@ -20,6 +23,7 @@ class PhotosController < ApplicationController
   end
 
   private
+
   def set_spot
     @spot = Spot.find(params[:spot_id])
   end
