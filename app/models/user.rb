@@ -6,7 +6,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :nickname, presence: true, uniqueness: true
+  validates :nickname, presence: true, uniqueness: true, length: { maximum: 20 }
+  validates :email, presence: true, uniqueness: true
+  
   has_many :photos, dependent: :destroy
 
   def self.guest
