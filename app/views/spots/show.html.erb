@@ -16,9 +16,7 @@
 
     <h3 class="mt-5 mb-5 text-center border-bottom"><%= @spot.name %></h3>
     <div class="mb-5">
-      <div class="spot-box">
-        <img src="<%= @spot.image %>" class="img-fluid mx-auto d-block">
-      </div>
+      <img src="<%= @spot.image %>" class="img-fluid mx-auto d-block">
       <div class="spot-box mt-5">
         <h4 class="text-justify text-align text-secondary"><%= @spot.content %></h4>
       </div>
@@ -35,9 +33,9 @@
     
       <div class="form">
         <%= form_with(model: [@spot, @photo], local: true) do |form| %>
-          <%= form.text_field :text, placeholder: "タイトルを入力してください", class: "form-group w-50 mr-3" %>
-          <%= form.file_field :photo_image, class: "file mb-3" %>
-          <%= form.submit "▶投稿する", class: "btn btn-success btn-lg form-group" %>
+          <%= form.text_field :text, placeholder: "タイトルを入力してください", class: "form-group w-50 mr-2" %>
+          <%= form.file_field :photo_image, class: "file btn btn-outline-primary mr-2" %>
+          <%= form.submit "▶投稿する", class: "btn btn-success btn-lg form-group mt-3" %>
         <% end %>
       </div>
     <% else %>
