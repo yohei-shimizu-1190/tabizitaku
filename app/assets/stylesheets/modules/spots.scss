@@ -5,6 +5,10 @@
   letter-spacing: 0.2em
 }
 
+.text-input {
+  height: 40px;
+}
+
 .photo-box {
   position: relative;
 }
@@ -36,7 +40,8 @@
 // quiz
 #wrapper {
   height: calc(100vh - 120px);
-  background-color: #DDDDDD;
+  background-image: url(image4.jpg);
+  background-size:cover;
 }
 
 #qbox {

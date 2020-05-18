@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   validates :nickname, presence: true, uniqueness: true, length: { maximum: 20 }
   validates :email, presence: true, uniqueness: true
-  
+
   has_many :photos, dependent: :destroy
 
   def self.guest
