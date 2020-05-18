@@ -78,3 +78,4 @@ gem 'mini_magick'
 gem 'rename'
 gem 'sprockets'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+gem 'kaminari'

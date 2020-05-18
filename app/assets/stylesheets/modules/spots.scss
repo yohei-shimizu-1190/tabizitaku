@@ -1,21 +1,12 @@
 
-// index
-.spot-box img{
-  height: 800px;
-}
-
 // show
 .spot-box h4 {
   line-height: 1.5em;
   letter-spacing: 0.2em
 }
 
-.image{
-  font-size: 50px;
-  cursor: pointer;
-  &--file {
-    display: none;
-  }
+.text-input {
+  height: 40px;
 }
 
 .photo-box {
@@ -49,7 +40,8 @@
 // quiz
 #wrapper {
   height: calc(100vh - 120px);
-  background-color: #DDDDDD;
+  background-image: url(image4.jpg);
+  background-size:cover;
 }
 
 #qbox {
