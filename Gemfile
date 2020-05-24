@@ -89,3 +89,4 @@ gem 'sprockets'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'kaminari'
 gem 'seed_dump'
+gem 'fog-aws'
