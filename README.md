@@ -1,4 +1,4 @@
-# 旅じたく
+![旅じたくロゴ](icon.png)
 
 .<img src="https://img.shields.io/badge/-Ruby-CC342D.svg?logo=ruby&style=plastic">
 <img src="https://img.shields.io/badge/-Rails-CC0000.svg?logo=rails&style=plastic">
