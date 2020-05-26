@@ -1,4 +1,5 @@
 # 旅じたく
+
 .<img src="https://img.shields.io/badge/-Ruby-CC342D.svg?logo=ruby&style=plastic">
 <img src="https://img.shields.io/badge/-Rails-CC0000.svg?logo=rails&style=plastic">
 <img src="https://img.shields.io/badge/-CSS3-1572B6.svg?logo=css3&style=flat">
@@ -9,11 +10,12 @@
 <img src="https://img.shields.io/badge/-Amazon%20AWS-232F3E.svg?logo=amazon-aws&style=flat">
 
 ## 概要
+
 http://54.199.48.112/
 
 日本にある世界遺産を簡単に見ることができます。
 地図から検索したり、クイズで学習することもできます。
-また、行ったことがある世界遺産の写真を投稿することも出来ます。
+また、行ったことがある世界遺産の写真を投稿可能なため、自宅にいながら日本中の素敵な景色を楽しむことができます。
 （画像はすべてフリー素材を使わせていただいたため、画質が粗いものもあります）
 
 ## 仕様
@@ -22,8 +24,8 @@ http://54.199.48.112/
 - Ruby on Rails 5.2.4.2
 - Bootstrap 4
 - Mysql
-- AWS
 - Google Map API
+- AWS
 
 ## おもな機能
 
@@ -54,10 +56,13 @@ http://54.199.48.112/
 
 
 ## 今後実装したいこと
+
 - 投稿した画像についてのいいね機能
 - 非同期投稿機能
 - Twitterアカウントでのログイン
 
 ## 制作背景
+
 新型コロナウィルスの影響で、外へ出てリフレッシュができない人が増えています。
-私は旅行が趣味なので、同じく旅行へ行けずにストレスを溜めている方達が自宅でも旅行の雰囲気を味わうことができるようなアプリを作りたいと考えました。
+私は旅行が趣味なので、旅行へ行けずにストレスを溜めている方達が自宅でも旅行の雰囲気を味わうことができるようなアプリを作りたいと考えました。
+海外旅行が
