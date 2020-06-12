@@ -42,21 +42,7 @@
       <h4 class="my-3">〜みんなの思い出〜 </h4>
       <div class="row">
         <% if @photos %>
-          <% @photos.each do |photo| %>
-            <div class="col-md-6 mb-4">
-              <div class="photo-box">
-                <%= image_tag photo.photo_image.url ,class: "mx-auto d-block"%>
-                <p class="photo-text">【 <%= photo.text %> 】</p>
-                <p class="photo-nickname"><%= photo.user.nickname %></p>
-                <% if user_signed_in? && current_user.id == photo.user_id %>
-                  <%= link_to '✕', spot_photo_path(@spot, photo), method: :delete, class: "photo-destroy-btn btn btn-sm btn-outline-danger", data:
-                    {confirm: "この投稿を削除してよろしいですか？",
-                      cancel: "やめる",
-                      commit: "削除する"}, title: "削除の確認" %>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
+          <%= render partial: "photos/photo", collection: @photos %>
         <% end %>
       </div>
     </div>
